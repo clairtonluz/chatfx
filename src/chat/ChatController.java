@@ -9,9 +9,6 @@ import javafx.scene.control.TextField;
 public class ChatController {
 
     @FXML
-    private Button bt_enviar;
-
-    @FXML
     private TextArea ta_conversa;
 
     @FXML
