@@ -11,8 +11,7 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Pane layoutY="81.0" prefHeight="218.0" prefWidth="491.0" />
-      <MenuBar>
+      <MenuBar prefHeight="29.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
@@ -31,5 +30,8 @@
           </Menu>
         </menus>
       </MenuBar>
+      <TextArea editable="false" layoutX="14.0" layoutY="41.0" prefHeight="273.0" prefWidth="458.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="128.0" />
+      <TextField layoutX="13.0" layoutY="345.0" prefHeight="41.0" prefWidth="458.0" />
+      <Button layoutX="487.0" layoutY="351.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="97.0" text="Enviar" />
    </children>
 </AnchorPane>
