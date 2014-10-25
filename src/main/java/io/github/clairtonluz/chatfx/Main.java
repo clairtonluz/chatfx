@@ -1,4 +1,4 @@
-package io.github.clairtonluz;
+package io.github.clairtonluz.chatfx;
 
 import javafx.application.Application;
 import javafx.application.Platform;

@@ -1,10 +1,10 @@
-package io.github.clairtonluz.controller;
+package io.github.clairtonluz.chatfx.controller;
 
 /**
  * Created by clairton on 10/25/14.
  */
 
-import io.github.clairtonluz.Main;
+import io.github.clairtonluz.chatfx.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

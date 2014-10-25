@@ -1,17 +1,13 @@
-package io.github.clairtonluz.cliente;
+package io.github.clairtonluz.chatfx.cliente;
 
 import javafx.application.Platform;
-import javafx.scene.control.TextArea;
 import javafx.scene.paint.Color;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
 import javax.swing.*;
 import java.io.*;
 import java.net.Socket;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 /**
  * Created by clairton on 10/25/14.
@@ -42,7 +38,7 @@ public class ChatCliente {
             output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
             System.out.printf("Conectado ao servidor %s:%s%n", SERVER_HOSTNAME, SERVER_PORT);
         } catch (IOException e) {
-            System.err.println("Can not establish connection to " + SERVER_HOSTNAME + ":" + SERVER_PORT);
+            JOptionPane.showMessageDialog(null, String.format("Não foi possível se conectar a  " + SERVER_HOSTNAME + ":" + SERVER_PORT));
             e.printStackTrace();
             System.exit(-1);
         }

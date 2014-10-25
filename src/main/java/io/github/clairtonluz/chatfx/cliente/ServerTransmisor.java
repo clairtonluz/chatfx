@@ -1,4 +1,6 @@
-package io.github.clairtonluz.cliente;
+package io.github.clairtonluz.chatfx.cliente;
+
+import io.github.clairtonluz.chatfx.cliente.ClienteInfo;
 
 import java.net.Socket;
 import java.util.Vector;

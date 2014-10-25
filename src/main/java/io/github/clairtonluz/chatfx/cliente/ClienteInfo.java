@@ -1,4 +1,4 @@
-package io.github.clairtonluz.cliente;
+package io.github.clairtonluz.chatfx.cliente;
 
 import java.net.Socket;
 
