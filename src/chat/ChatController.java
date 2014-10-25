@@ -25,7 +25,6 @@ public class ChatController {
     void enviar(ActionEvent event) {
         cliente.enviar(tfMensagem.getText());
         tfMensagem.clear();
-
     }
 
 }
