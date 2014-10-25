@@ -18,7 +18,7 @@ public class ChatController {
     private Thread TaskMonitorarMensage;
 
     public void initialize() {
-        cliente = new ChatCliente("clairton", conversa);
+        cliente = new ChatCliente(Main.usuarioLogado, conversa);
     }
 
     @FXML
