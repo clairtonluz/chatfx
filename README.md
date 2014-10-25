@@ -6,6 +6,11 @@ Trabalho para a cadeira de TDSI - Tecnologia de Desenvolvimento de Sistemas para
 Comando para gerar o jar
 ========================
 <pre><code>
-javapackager -createjar -appclass io.github.clairtonluz.Main -srcdir ./target/classes/ -outfile chatfx -v
+	mvn clean package
 </code></pre>
 
+ou
+
+<pre><code>
+javapackager -createjar -appclass io.github.clairtonluz.Main -srcdir ./target/classes/ -outfile chatfx -v
+</code></pre>
