@@ -1,4 +1,4 @@
-package chat.cliente;
+package io.github.clairtonluz.cliente;
 
 import java.io.IOException;
 import java.io.OutputStreamWriter;
@@ -29,7 +29,7 @@ public class ClienteEnviador extends Thread {
     }
 
     private synchronized String getProximaMensagemDaFila() throws InterruptedException {
-        while (filaMensagens.size()==0) {
+        while (filaMensagens.size() == 0) {
             wait();
         }
         String message = (String) filaMensagens.get(0);

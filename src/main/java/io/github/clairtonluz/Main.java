@@ -1,4 +1,4 @@
-package chat;
+package io.github.clairtonluz;
 
 import javafx.application.Application;
 import javafx.application.Platform;

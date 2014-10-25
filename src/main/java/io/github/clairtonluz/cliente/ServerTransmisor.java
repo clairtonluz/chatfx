@@ -1,4 +1,4 @@
-package chat.cliente;
+package io.github.clairtonluz.cliente;
 
 import java.net.Socket;
 import java.util.Vector;

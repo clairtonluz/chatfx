@@ -1,13 +1,12 @@
-package chat;
+package io.github.clairtonluz.controller;
 
 /**
  * Created by clairton on 10/25/14.
  */
 
+import io.github.clairtonluz.Main;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 

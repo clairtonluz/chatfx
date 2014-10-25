@@ -1,4 +1,4 @@
-package chat.cliente;
+package io.github.clairtonluz.cliente;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -23,7 +23,7 @@ public class ClientListener extends Thread {
 
 
     /**
-     * Ler mensagens do cliente socket, redireciona para a fila do server transmisor
+     * Ler mensagens do io.github.clairtonluz.cliente socket, redireciona para a fila do server transmisor
      * e o server transmisor envia a mensagem
      */
     public void run() {

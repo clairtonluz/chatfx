@@ -1,4 +1,4 @@
-package chat.cliente;
+package io.github.clairtonluz.cliente;
 
 import javafx.application.Platform;
 import javafx.scene.control.TextArea;
@@ -73,7 +73,9 @@ public class ChatCliente {
     }
 
     public void enviar(String mensagem) {
-        output.println(mensagem);
-        output.flush();
+        if(!mensagem.isEmpty()) {
+            output.println(mensagem);
+            output.flush();
+        }
     }
 }
