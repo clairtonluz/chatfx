@@ -2,9 +2,16 @@ package chat.cliente;
 
 import javafx.application.Platform;
 import javafx.scene.control.TextArea;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 
+import javax.swing.*;
 import java.io.*;
 import java.net.Socket;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 /**
  * Created by clairton on 10/25/14.
@@ -13,15 +20,19 @@ public class ChatCliente {
 
     public static final String SERVER_HOSTNAME = "localhost";
     public static final int SERVER_PORT = 8080;
+    private static final String MENSAGEM_DO_SISTEMA = "[SYSTEM]";
 
     private BufferedReader input = null;
     private PrintWriter output = null;
-    public static final StringBuilder CONVERSA = new StringBuilder();
 
-    public ChatCliente(TextArea receptorDaMensagem) {
-        conectar();
-
-        aguardarMensagens(receptorDaMensagem);
+    public ChatCliente(String username, TextFlow receptorDaMensagem) {
+        if(username != null) {
+            conectar();
+            enviar(username);
+            aguardarMensagens(receptorDaMensagem);
+        } else {
+            throw new IllegalArgumentException("Username não pode ser null");
+        }
     }
 
     private void conectar() {
@@ -29,7 +40,7 @@ public class ChatCliente {
             Socket socket = new Socket(SERVER_HOSTNAME, SERVER_PORT);
             input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             output = new PrintWriter(new OutputStreamWriter(socket.getOutputStream()));
-            System.out.printf("Conectado ao servidor %s:%s", SERVER_HOSTNAME, SERVER_PORT);
+            System.out.printf("Conectado ao servidor %s:%s%n", SERVER_HOSTNAME, SERVER_PORT);
         } catch (IOException e) {
             System.err.println("Can not establish connection to " + SERVER_HOSTNAME + ":" + SERVER_PORT);
             e.printStackTrace();
@@ -37,17 +48,21 @@ public class ChatCliente {
         }
     }
 
-    private void aguardarMensagens(TextArea receptorDaMensagem){
+    private void aguardarMensagens(TextFlow receptorDaMensagem){
         new Thread(() -> {
             try {
                 // Ler mensagem do servidor e imprime
                 String mensagem;
-                final StringBuilder sb = new StringBuilder();
                 while ((mensagem = input.readLine()) != null) {
-                    System.out.println(mensagem);
-                    sb.append(mensagem).append(System.getProperty("line.separator"));
+                    mensagem += System.getProperty("line.separator");
+                    final Text msg = new Text();
+                    if(mensagem.contains(MENSAGEM_DO_SISTEMA)) {
+                        mensagem = mensagem.substring(MENSAGEM_DO_SISTEMA.length());
+                        msg.setFill(Color.RED);
+                    }
+                    msg.setText(mensagem);
                     Platform.runLater(() -> {
-                        receptorDaMensagem.setText(sb.toString());
+                        receptorDaMensagem.getChildren().add(msg);
                     });
                 }
             } catch (IOException e) {
