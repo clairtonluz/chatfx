@@ -3,9 +3,11 @@ package chat;
 import chat.cliente.ChatCliente;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.WindowEvent;
 
 import java.io.IOException;
 
@@ -16,8 +18,10 @@ public class ChatController {
     @FXML
     private volatile TextArea ta_conversa;
     private ChatCliente cliente;
+    private Thread TaskMonitorarMensage;
 
     public void initialize() {
+        System.out.println("INIT");
         cliente = new ChatCliente(ta_conversa);
         aguardarMensagens(ta_conversa);
     }
@@ -26,10 +30,11 @@ public class ChatController {
     void enviar(ActionEvent event) {
         cliente.enviar(tf_mensagem.getText());
         tf_mensagem.clear();
+
     }
 
     private void aguardarMensagens(final TextArea receptorDaMensagem) {
-        new Thread(() -> {
+        TaskMonitorarMensage = new Thread(() -> {
             try {
                 // Ler mensagem do servidor e imprime
                 String mensagem;
@@ -45,7 +50,12 @@ public class ChatController {
                 System.err.println("Connection to server broken.");
                 e.printStackTrace();
             }
-        }).start();
+        });
+        TaskMonitorarMensage.start();
+    }
+
+    public void sair(){
+
     }
 
 }
