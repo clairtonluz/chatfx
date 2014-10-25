@@ -6,6 +6,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
+import javax.swing.*;
+import java.net.ConnectException;
+
 public class ChatController {
 
     @FXML
@@ -14,11 +17,15 @@ public class ChatController {
     @FXML
     private TextField tf_mensagem;
 
+    private ChatCliente cliente;
+
+    public void initialize(){
+        cliente = new ChatCliente();
+    }
+
     @FXML
     void enviar(ActionEvent event) {
-        System.out.println(tf_mensagem.getText());
-        ta_conversa.setText(tf_mensagem.getText());
-
+        cliente.enviar(tf_mensagem.getText());
     }
 
 }
