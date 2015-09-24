@@ -7,7 +7,7 @@ apply plugin: 'eclipse'
 group = 'io.github.clairtonluz'
 version = '1.0'
 
-description = "chatfx"
+description = """chatfx"""
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
