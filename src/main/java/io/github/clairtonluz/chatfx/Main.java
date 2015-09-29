@@ -15,6 +15,7 @@ public class Main extends Application {
 
     public static Stage stage;
     public static String usuarioLogado;
+    public static String ipServer;
 
     public static void irPara(String tela) {
         try {
@@ -26,6 +27,8 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        ipServer = args.length > 0 ? args[0] : "localhost";
+        System.out.println("server: " + ipServer);
         launch(args);
     }
 

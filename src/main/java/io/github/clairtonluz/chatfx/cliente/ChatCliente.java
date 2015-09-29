@@ -1,5 +1,6 @@
 package io.github.clairtonluz.chatfx.cliente;
 
+import io.github.clairtonluz.chatfx.Main;
 import javafx.application.Platform;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Text;
@@ -14,7 +15,7 @@ import java.net.Socket;
  */
 public class ChatCliente {
 
-    public static final String SERVER_HOSTNAME = "localhost";
+    public static String SERVER_HOSTNAME;
     public static final int SERVER_PORT = 8080;
     private static final String MENSAGEM_DO_SISTEMA = "[SYSTEM]";
 
@@ -23,6 +24,7 @@ public class ChatCliente {
 
     public ChatCliente(String username, TextFlow receptorDaMensagem) {
         if(username != null) {
+            SERVER_HOSTNAME = Main.ipServer;
             conectar();
             enviar(username);
             aguardarMensagens(receptorDaMensagem);
